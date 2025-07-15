@@ -1,6 +1,6 @@
 from sentence_transformers import SentenceTransformer
 import numpy as np
-
+import os
 import re
 import asyncio
 import logging
@@ -107,11 +107,11 @@ class SmartSummaryGenerator:
         return ' '.join(summary[:5])
 class TelegramMonitor:
     def __init__(self):
-        self.api_id = 
-        self.api_hash = 
-        self.session_string = 
-        self.bot_token = 
-        self.target_channel = 
+        self.api_id = os.environ.get('API_ID')
+        self.api_hash = os.environ.get('API_HASH')
+        self.session_string = os.environ.get('SESSION_STRING')
+        self.bot_token = os.environ.get('BOT_TOKEN')
+        self.target_channel = os.environ.get('TARGET_CHANNEL')
         self.channels = "rbc_news, bankoffo, kommersant, ejdailyru, banksta, ROIrosinkas, tbank, interfaxonline, plusjournal, bankiruofficial, profindustrycom, gazprombank, cccbnews, AlfaBank, bankvtb, vedomosti, rshb_tg, minfin, rosstat_official, minec_russia"
         self.keywords = "инкассация, купюра, спецавтомобиль, кассовый центр, обслуживание платежных терминалов, перевозка ценностей, депозитные машины, перевозка и доставка денежных средств, транспортировка денежных средств, монеты, банкноты, денежное обращение, инкассаторские перевозки, инкассаторский центр, доставка наличных, инкассация терминалов, маршруты инкассации, инкассаторская компания, хранение ценностей, хранение слитков, перевозка драгметаллов, перевозка кассет, перевозка сейф-пакетов, загрузка банкоматов, выгрузка банкоматов, доставка денег в банк, рынок инкассации, платежный бизнес, инкассатор, касса пересчета, онлайн-инкассация, самоинкассация, перевозка наличных денег, пересчет наличных, подкрепление офисов, подкрепление отделений, доставка размена, рассчетно-кассовые центры банка россии, кассовое обслуживание, ркц, сокращение наличных, наличные, автоматизированные депозитные машины, наличная валюта, наличные рубли"
         self.max_manual_days = 7

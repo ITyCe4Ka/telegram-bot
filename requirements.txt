@@ -1,0 +1,7 @@
+numpy == 1.26.4
+asyncio == 3.4.3
+pymorphy3 == 2.0.4
+telethon == 1.40.0
+aiogram == 3.20.0.post0
+sentence_transformers == 4.1.0
+APScheduler == 3.11.0
